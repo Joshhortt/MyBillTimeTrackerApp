@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="MyBillTimeTracker.Controls.AboutControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyBillTimeTracker.Controls"
+             mc:Ignorable="d" FontSize="18" Background="White"
+             d:DesignHeight="525" d:DesignWidth="300">
+    <Grid>
+		<!--- Row Definitions -->
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<!--- Row 0 -->
+		<TextBlock FontSize="24" Grid.Row="0" TextAlignment="Right">About</TextBlock>
+
+		<!--- Row 1 -->
+		<TextBlock FontSize="28" Grid.Row="1" HorizontalAlignment="Center" Margin="0 20 0 10" FontFamily="Open Sans" Foreground="#FFD11907">My Bill Time Tracker</TextBlock>
+		
+		<!--- Row 2 -->
+		<TextBlock FontSize="18" Grid.Row="2" HorizontalAlignment="Left" Margin="20 0 0 20" >By Josh Hortt</TextBlock>
+		
+		<!--- Row 3 -->
+		<TextBlock FontSize="16" Grid.Row="3" HorizontalAlignment="Center" Margin="0 20" FontFamily="Open Sans" 
+				   TextWrapping="Wrap">
+			This application was built to help any Consultant and Web Developer 
+			to control their Time and Rates spent working on Customers Projects.
+		</TextBlock>
+		
+		<!--- Row 4 -->
+		<StackPanel Orientation="Vertical" Grid.Row="4" Margin="0 20 0 20">
+			<TextBlock FontSize="18" HorizontalAlignment="Center" 
+					   FontFamily="Open Sans SemiBold">
+				For more Information:
+			</TextBlock>
+
+			<TextBlock HorizontalAlignment="Center">
+				<Hyperlink NavigateUri="https://github.com/Joshhortt/MyBillTimeTrackerApp">
+				https://github.com/Joshhortt
+			</Hyperlink>
+			</TextBlock>
+			
+		</StackPanel>
+		
+		
+	</Grid>
+</UserControl>

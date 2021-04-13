@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyBillTimeTracker.Controls" FontFamily="Open Sans"
              mc:Ignorable="d" FontSize="16" Background="White"
-             d:DesignHeight="500" d:DesignWidth="300">
+             d:DesignHeight="525" d:DesignWidth="300">
 	<Grid>
 		<!--- Row Definitions -->
 		<Grid.RowDefinitions>
@@ -19,7 +19,7 @@
 		</Grid.RowDefinitions>
 
 		<!--- Row 0 -->
-		<TextBlock FontSize="24" TextAlignment="Right">Time Entry</TextBlock>
+		<TextBlock FontSize="24" Grid.Row="0" TextAlignment="Right">Time Entry</TextBlock>
 
 		<!--- Row 1 -->
 		<StackPanel Orientation="Vertical" Grid.Row="1" Margin="5 5 5 10">
