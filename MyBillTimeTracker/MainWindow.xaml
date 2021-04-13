@@ -5,14 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyBillTimeTracker"
         mc:Ignorable="d"
-        Title="Bill Time Tracker by Josh Hortt" Height="500" Width="400">
+        Title="Bill Time Tracker by Josh Hortt" Height="525" Width="350" WindowStartupLocation="CenterScreen">
 	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="119*"/>
+			<ColumnDefinition Width="13*"/>
+			<ColumnDefinition Width="39*"/>
+		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="auto" />
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 
-		<Menu IsMainMenu="True" Grid.Row="0" FontSize="16" Margin="0 0 0 10">
+		<Menu IsMainMenu="True" Grid.Row="0" FontSize="18" Margin="0 0 0 10" Grid.ColumnSpan="3">
 			<MenuItem Header="_File">
 				<MenuItem x:Name="mainMenuItem" Header="_Main" />
 				<MenuItem x:Name="exitMenuItem" Header="E_xit" />
@@ -27,7 +32,7 @@
 				<MenuItem x:Name="aboutMenuItem" Header="_About" />
 			</MenuItem>
 		</Menu>
-		<ContentControl x:Name="content" Grid.Row="1" Margin="20 0 20 20"/>
+		<ContentControl x:Name="content" Grid.Row="1" Margin="20 0 20 20" Grid.ColumnSpan="3"/>
 	</Grid>
-	
+
 </Window>
