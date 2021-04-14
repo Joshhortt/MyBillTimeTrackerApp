@@ -9,13 +9,12 @@ using System.Threading.Tasks;
 
 namespace MyBillTimeLibrary.DataAccess
 {
-	public class SqliteDataAccess
+	public static class SqliteDataAccess
 	{
-		// LoadData<PersonModel>("Select * from Person", null) = List<PersonModel>
 		public static List<T> LoadData<T>(string sqlStatement, Dictionary<string, object> parameters, string connectionName = "Default")
 		{
 			DynamicParameters p = new DynamicParameters();
-			parameters.ToList().ForEach(x => p.Add(x.Key, x.Value));
+			// parameters.ToList().ForEach(x => p.Add(x.Key, x.Value));   -- Extension method replaces this
 			using (IDbConnection cnn = new SQLiteConnection(DataAccessHelpers.LoadConnectionString(connectionName))) 
 			{
 				var rows = cnn.Query<T>(sqlStatement, p);
@@ -23,5 +22,24 @@ namespace MyBillTimeLibrary.DataAccess
 				return rows.ToList();
 			}
 		}
+
+		public static void SaveData<T>(string sqlStatement, Dictionary<string, object> parameters, string connectionName = "Default")
+		{
+			DynamicParameters p = parameters.ToDynamicParameters();
+			// parameters.ToList().ForEach(x => p.Add(x.Key, x.Value));  -- Extension method replaces this
+			using (IDbConnection cnn = new SQLiteConnection(DataAccessHelpers.LoadConnectionString(connectionName)))
+			{
+				cnn.Execute(sqlStatement, p);
+			}
+		}
+		private static DynamicParameters ToDynamicParameters(this Dictionary<string, object> p)
+		{
+			DynamicParameters output = new DynamicParameters();
+
+			p.ToList().ForEach(x => output.Add(x.Key, x.Value));
+
+			return output;
+		}
+
 	}
 }
