@@ -55,5 +55,51 @@ namespace MyBillTimeTracker.Controls
 				roundUpTextbox.Text = "0";
 			}
 		}
+
+		// Start Validating
+		private (bool isValid, DefaultsModel model) ValidateForm()
+		{
+			bool isValid = true;
+			DefaultsModel model = new DefaultsModel();
+			
+			try
+			{
+				// 1 means if it is checked / True --- O if it is not checked / false
+				model.PreFatura = (bool)preBillCheckbox.IsChecked ? 1 : 0;
+				model.LimiteRomper = (bool)hasCutOffCheckBox.IsChecked ? 1 : 0; 
+				model.TaxaHora = double.Parse(hourlyRateTextbox.Text);
+				model.Romper = int.Parse(cutOffTextbox.Text);
+				model.HorasMinimas = double.Parse(minimumHoursTextbox.Text);
+				model.IncrementoCobrado = double.Parse(billingIncrementTextbox.Text);
+				model.ArredondarCimaMinutos = int.Parse(roundUpTextbox.Text);
+			}
+			catch
+			{
+
+				isValid = false;
+			}
+
+			return(isValid,model);
+		}
+
+		private void SaveToDatabase(DefaultsModel model)
+		{
+
+		}
+
+		private void SubmitForm_Click(object sender, RoutedEventArgs e)
+		{
+			var form = ValidateForm();
+
+			if (form.isValid == true)
+			{
+				SaveToDatabase(form.model);
+			}
+			else
+			{
+				MessageBox.Show("O Formulario não é válido. Confira e Tente novamente! | The Form is not valid. Please check your entries & Try again!");
+				return;
+			}
+		}
 	}
 }
