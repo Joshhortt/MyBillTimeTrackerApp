@@ -82,24 +82,44 @@ namespace MyBillTimeTracker.Controls
 			return(isValid,model);
 		}
 
+		// Create call to Database
 		private void SaveToDatabase(DefaultsModel model)
 		{
+			string sql = "delete from Defaults";
+			SqliteDataAccess.SaveData(sql, new Dictionary<string, object>());
 
+			sql = "insert into Defaults(TaxaHora, PreFatura, LimiteRomper, Romper, HorasMinimas, IncrementoCobrado, ArredondarCimaMinutos)" +
+				"values (@TaxaHora, @PreFatura, @LimiteRomper, @Romper, @HorasMinimas,  @IncrementoCobrado,  @ArredondarCimaMinutos)";
+
+			Dictionary<string, object> parameters = new Dictionary<string, object>
+			{
+				{"@TaxaHora", model.TaxaHora },
+				{"@PreFatura", model.PreFatura },
+				{"@LimiteRomper", model.LimiteRomper },
+				{"@Romper", model.Romper },
+				{"@HorasMinimas", model.HorasMinimas },
+				{"@IncrementoCobrado", model.IncrementoCobrado },
+				{"@ArredondarCimaMinutos", model.ArredondarCimaMinutos }
+			};
+			SqliteDataAccess.SaveData(sql, parameters);
 		}
 
-		private void SubmitForm_Click(object sender, RoutedEventArgs e)
+		private void submitForm_Click(object sender, RoutedEventArgs e)
 		{
+
 			var form = ValidateForm();
 
 			if (form.isValid == true)
 			{
 				SaveToDatabase(form.model);
+				MessageBox.Show("Success");
 			}
 			else
 			{
-				MessageBox.Show("O Formulario não é válido. Confira e Tente novamente! | The Form is not valid. Please check your entries & Try again!");
+				MessageBox.Show("O Formulario não é válido. Confira e Tente novamente!");
 				return;
 			}
+
 		}
 	}
 }
