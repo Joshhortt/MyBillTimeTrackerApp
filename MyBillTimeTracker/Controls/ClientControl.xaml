@@ -27,12 +27,12 @@
 		
 		<!--- Row 1 -->
 		<StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5 5 5 10">
-			<StackPanel Orientation="Vertical">
+			<StackPanel Orientation="Vertical" x:Name="clientStackPanel">
 				<TextBlock>Client</TextBlock>
 				<ComboBox x:Name="clientDropDown" Width="150" />
 			</StackPanel>
 			<Button x:Name="editButton" Margin="5 0" VerticalAlignment="Bottom" Padding="5 2">Edit</Button>
-			<Button x:Name="newButton" Margin="0 0 5 0" VerticalAlignment="Bottom" Padding="5 2">New</Button>
+			<Button x:Name="newButton" Margin="0 0 5 0" VerticalAlignment="Bottom" Padding="5 2" Click="NewButton_Click">New</Button>
 		</StackPanel>
 
 		<!--- Row 2 -->
@@ -56,7 +56,7 @@
 		<!--- Row 5 -->
 		<StackPanel Orientation="Horizontal" Grid.Row="5" Margin="5 5 5 10">
 			<CheckBox x:Name="preBillCheckbox" Margin="0 0 25 0">Pre-bill Client</CheckBox>
-			<CheckBox x:Name="hasCutOff">Cut Off Client</CheckBox>
+			<CheckBox x:Name="hasCutOffCheckbox">Cut Off Client</CheckBox>
 		</StackPanel>
 
 		<!--- Row 6 -->
@@ -79,12 +79,12 @@
 			</StackPanel>
 			<StackPanel Orientation="Vertical">
 				<TextBlock>Round Up (min)</TextBlock>
-				<TextBox x:Name="roundUpTextbox" />
+				<TextBox x:Name="roundUpAfterXMinuteTextbox" />
 			</StackPanel>
 		</StackPanel>
 		
 		<!--- Row 8 -->
-		<Button x:Name="submitForm" Grid.Row="8" Margin="5 5 5 10">Submit</Button>
+		<Button x:Name="submitForm" Grid.Row="8" Margin="5 5 5 10" Click="SubmitForm_Click">Submit</Button>
 
 	</Grid>
 </UserControl>

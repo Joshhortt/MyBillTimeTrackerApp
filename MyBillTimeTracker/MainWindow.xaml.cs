@@ -25,8 +25,8 @@ namespace MyBillTimeTracker
 		{
 			InitializeComponent();
 			//content.Content = new MainControl();
-			content.Content = new ClientControl();
-			//content.Content = new DefaultsControl();
+			//content.Content = new ClientControl();
+			content.Content = new DefaultsControl();
 			//content.Content = new PaymentsControl();
 			//content.Content = new WorkControl();
 			//content.Content = new AboutControl();

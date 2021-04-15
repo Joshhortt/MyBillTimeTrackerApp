@@ -37,7 +37,7 @@ namespace MyBillTimeTracker.Controls
             {
                 hourlyRateTextbox.Text = model.HourlyRate.ToString();
                 preBillCheckbox.IsChecked = (model.HourlyRate > 0);
-                hasCutOffCheckBox.IsChecked = (model.HasCutOff > 0);
+                hasCutOffCheckbox.IsChecked = (model.HasCutOff > 0);
                 cutOffTextbox.Text = model.CutOff.ToString();
                 minimumHoursTextbox.Text = model.MinimumHours.ToString();
                 billingIncrementTextbox.Text = model.BillingIncrement.ToString();
@@ -47,7 +47,7 @@ namespace MyBillTimeTracker.Controls
             {
                 hourlyRateTextbox.Text = "0";
                 preBillCheckbox.IsChecked = true;
-                hasCutOffCheckBox.IsChecked = false;
+                hasCutOffCheckbox.IsChecked = false;
                 cutOffTextbox.Text = "0";
                 minimumHoursTextbox.Text = "0.25";
                 billingIncrementTextbox.Text = "0.25";
@@ -63,7 +63,7 @@ namespace MyBillTimeTracker.Controls
             try
             {
                 model.PreBill = (bool)preBillCheckbox.IsChecked ? 1 : 0;
-                model.HasCutOff = (bool)hasCutOffCheckBox.IsChecked ? 1 : 0;
+                model.HasCutOff = (bool)hasCutOffCheckbox.IsChecked ? 1 : 0;
                 model.HourlyRate = double.Parse(hourlyRateTextbox.Text);
                 model.CutOff = int.Parse(cutOffTextbox.Text);
                 model.MinimumHours = double.Parse(minimumHoursTextbox.Text);
@@ -99,7 +99,8 @@ namespace MyBillTimeTracker.Controls
             SqliteDataAccess.SaveData(sql, parameters);
         }
 
-        private void submitForm_Click(object sender, RoutedEventArgs e)
+        private void SubmitForm_Click(object sender, RoutedEventArgs e)
+
         {
             var form = ValidateForm();
 
@@ -108,11 +109,11 @@ namespace MyBillTimeTracker.Controls
                 SaveToDatabase(form.model);
                 MessageBox.Show("Success");
             }
-            else
-            {
-                MessageBox.Show("The form is not valid. Please check your entries and try again.");
-                return;
-            }
-        }
-    }
+			else
+			{
+				MessageBox.Show("The form is not valid. Please check your entries and try again.");
+				return;
+			}
+		}
+	}
 }
