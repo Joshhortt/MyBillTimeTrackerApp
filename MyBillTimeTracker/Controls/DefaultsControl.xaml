@@ -54,7 +54,7 @@
 			</StackPanel>
 			<StackPanel Orientation="Vertical">
 				<TextBlock>Round Up (min)</TextBlock>
-				<TextBox x:Name="roundUpTextbox" />
+				<TextBox x:Name="roundUpAfterXMinuteTextbox" />
 			</StackPanel>
 		</StackPanel>
 
